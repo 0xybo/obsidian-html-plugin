@@ -1,4 +1,4 @@
-import { App, PluginSettingTab, Setting, TFolder, Vault } from "obsidian";
+import { App, Modifier, PluginSettingTab, Setting, TFolder, Vault } from "obsidian";
 import HtmlPlugin from "./HtmlPlugin";
 import { HtmlPluginOpMode, OP_MODE_INFO_DATA, OP_MODE_INFO_HTML } from "./HtmlPluginOpMode";
 
@@ -50,7 +50,7 @@ export class HtmlSettingTab extends PluginSettingTab {
 				dropdown.addOptions(OP_MODE_INFO_DATA);
 				dropdown
 					.setValue(this.plugin.settings.opMode)
-					.onChange( async (opMode) => {
+					.onChange( async (opMode: HtmlPluginOpMode) => {
 						this.plugin.settings.opMode = opMode;
 						await this.plugin.saveSettings();
 					});

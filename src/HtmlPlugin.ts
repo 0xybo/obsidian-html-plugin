@@ -30,7 +30,7 @@ export default class HtmlPlugin extends Plugin {
 				this.registerExtensions(HTML_FILE_EXTENSIONS, VIEW_TYPE_HTML);
 			}
 		} catch (error) {
-			await showError(`File extensions ${HTML_FILE_EXTENSIONS} had been registered by other plugin!`);
+			await showError(new Error(`File extensions ${HTML_FILE_EXTENSIONS} had been registered by other plugin!`));
 		}
 		
 		this.addSettingTab(new HtmlSettingTab(this.app, this));
